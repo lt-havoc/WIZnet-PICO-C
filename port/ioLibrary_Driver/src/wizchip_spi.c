@@ -296,19 +296,14 @@ void wizchip_initialize(void)
         #else
         printf(" W6x00 initialized fail\n");
         #endif
-
-        return;
     }
-    /* Check PHY link status */
-    do
-    {
-        if (ctlwizchip(CW_GET_PHYLINK, (void *)&temp) == -1)
-        {
-            printf(" Unknown PHY link status\n");
+}
 
-            return;
-        }
-    } while (temp == PHY_LINK_OFF);
+bool wizchip_is_link_up()
+{
+    uint8_t status;
+    ctlwizchip(CW_GET_PHYLINK, (void *)&status);
+	return status == PHY_LINK_ON;
 }
 
 void wizchip_check(void)

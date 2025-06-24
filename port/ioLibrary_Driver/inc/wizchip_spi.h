@@ -241,5 +241,13 @@ void print_network_information(wiz_NetInfo net_info);
  *  \param net_info network information.
  */
 void print_ipv6_addr(uint8_t* name, uint8_t* ip6addr);
+/*! \brief Checks for link
+ *  \ingroup wizchip_spi
+ *
+ *  Returns true if PHY_LINK_ON, else false
+ *
+ *  \param none
+ */
+bool wizchip_is_link_up();
 
 #endif /* _WIZCHIP_SPI_H_ */
